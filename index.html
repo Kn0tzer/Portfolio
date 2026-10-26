@@ -1,173 +1,773 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Kn0tzer"/>
-    <title>Kn0tzer — Portfolio</title>
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#1b2025" />
+    <meta
+      name="description"
+      content="Kn0tzer, 16. Design, security research, photography. Microapps, Shortcuts exploits, and self hosting."
+    />
+    <meta property="og:title" content="Kn0tzer" />
+    <meta
+      property="og:description"
+      content="I make things. I break things. I care how they feel."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kn0tzer.work.gd/" />
+    <link rel="canonical" href="https://kn0tzer.work.gd/" />
+    <link rel="icon" href="assets/avatar.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="license" href="README.md" />
+    <title>Kn0tzer</title>
+    <link
+      rel="preload"
+      href="assets/geist.woff2"
+      type="font/woff2"
+      crossorigin=""
+      as="font"
+    />
+  </head>
+  <body>
+    <svg
+      id="portfolio-icons"
+      aria-hidden="true"
+      style="position: absolute; width: 0; height: 0; overflow: hidden"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <symbol id="arrow-up-right" viewBox="0 0 24 24">
+          <path d="M16.4 7.6L7 17"></path>
+          <path d="M8 7l9 0l0 9"></path>
+        </symbol>
+        <symbol id="arrow-right" viewBox="0 0 24 24">
+          <path d="M5 12l14 0"></path>
+          <path d="M13 18l6 -6"></path>
+          <path d="M13 6l6 6"></path>
+        </symbol>
+        <symbol id="arrow-left" viewBox="0 0 24 24">
+          <path d="M5 12l14 0"></path>
+          <path d="M5 12l6 6"></path>
+          <path d="M5 12l6 -6"></path>
+        </symbol>
+        <symbol id="sun" viewBox="0 0 24 24">
+          <path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+          <path
+            d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"
+          ></path>
+        </symbol>
+        <symbol id="moon" viewBox="0 0 24 24">
+          <path
+            d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008"
+          ></path>
+        </symbol>
 
-    <script src="assets/normalmap.js"></script>
-    <script type="module" src="./assets/portfolio.js"></script>
-    <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-
-    <!-- Background -->
-    <canvas id="carbon-canvas"></canvas>
-
-    <!-- Navigation -->
-    <nav id="nav-dots" aria-label="Section navigation">
-        <button class="nav-dot active" data-section="0" aria-label="Go to top section"></button>
-        <button class="nav-dot" data-section="1" aria-label="Go to projects section"></button>
-        <button class="nav-dot" data-section="2" aria-label="Go to experience section"></button>
+        <symbol id="brand-github" viewBox="0 0 24 24">
+          <g class="github-wave">
+            <path class="github-tail" d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3"></path>
+            <path
+              class="github-body"
+              d="M15 21v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
+            ></path>
+          </g>
+        </symbol>
+        <symbol id="brand-discord" viewBox="0 0 24 24">
+          <defs>
+            <mask
+              id="discord-eye-mask"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="24"
+              height="24"
+            >
+              <rect width="24" height="24" fill="white"></rect>
+              <g class="discord-eyes">
+                <ellipse
+                  class="discord-eye"
+                  cx="8.02"
+                  cy="12.91"
+                  rx="2.16"
+                  ry="2.42"
+                  fill="black"
+                ></ellipse>
+                <ellipse
+                  class="discord-eye"
+                  cx="15.995"
+                  cy="12.91"
+                  rx="2.16"
+                  ry="2.42"
+                  fill="black"
+                ></ellipse>
+              </g>
+              <g class="discord-brows">
+                <path
+                  class="discord-brow discord-brow-left"
+                  d="M5.6 8.5q2.1-1.5 4.3-.2"
+                  fill="none"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  class="discord-brow discord-brow-right"
+                  d="M14.1 8.3q2.2-1.3 4.3.2"
+                  fill="none"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                ></path>
+              </g>
+            </mask>
+          </defs>
+          <path
+            class="discord-body"
+            fill="currentColor"
+            stroke="none"
+            mask="url(#discord-eye-mask)"
+            d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.099.246.198.372.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.029Z"
+          ></path>
+        </symbol>
+        <symbol id="mail" viewBox="0 0 24 24">
+          <path class="mail-back" d="M3 8h18v12H3z"></path>
+          <path class="mail-flap" d="M3 8h18l-9 7z"></path>
+          <path class="mail-front" d="M3 8l9 7 9-7v12H3z"></path>
+        </symbol>
+        <symbol id="copy" viewBox="0 0 24 24">
+          <path
+            d="M7 9.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -8.666"
+          ></path>
+          <path
+            d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1"
+          ></path>
+        </symbol>
+        <symbol id="check" viewBox="0 0 24 24">
+          <path d="M5 12l5 5l10 -10"></path>
+        </symbol>
+        <symbol id="x" viewBox="0 0 24 24">
+          <path d="M18 6l-12 12"></path>
+          <path d="M6 6l12 12"></path>
+        </symbol>
+        <symbol id="camera" viewBox="0 0 24 24">
+          <path
+            d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2"
+          ></path>
+          <path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+        </symbol>
+        <symbol id="star" viewBox="0 0 24 24">
+          <path
+            class="star-main"
+            d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245"
+          ></path>
+          <path
+            class="star-sparkle star-sparkle-a"
+            d="M21 0.5v3m-1.5-1.5h3"
+          ></path>
+          <path
+            class="star-sparkle star-sparkle-b"
+            d="M2.5 19v2.5m-1.25-1.25h2.5"
+          ></path>
+        </symbol>
+        <symbol id="git-commit" viewBox="0 0 24 24">
+          <path d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+          <path d="M12 3l0 6"></path>
+          <path d="M12 15l0 6"></path>
+        </symbol>
+        <symbol id="code" viewBox="0 0 24 24">
+          <path d="M7 8l-4 4l4 4"></path>
+          <path d="M17 8l4 4l-4 4"></path>
+          <path d="M14 4l-4 16"></path>
+        </symbol>
+        <symbol id="server" viewBox="0 0 24 24">
+          <path
+            d="M3 7a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-2"
+          ></path>
+          <path
+            d="M3 15a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -2"
+          ></path>
+          <path d="M7 8l0 .01"></path>
+          <path d="M7 16l0 .01"></path>
+        </symbol>
+        <symbol id="chevron-right" viewBox="0 0 24 24">
+          <path d="M9 6l6 6l-6 6"></path>
+        </symbol>
+        <symbol id="refresh" viewBox="0 0 24 24">
+          <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"></path>
+          <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"></path>
+        </symbol>
+        <symbol id="arrows-maximize" viewBox="0 0 24 24">
+          <path d="M16 4l4 0l0 4"></path>
+          <path d="M14 10l6 -6"></path>
+          <path d="M8 20l-4 0l0 -4"></path>
+          <path d="M4 20l6 -6"></path>
+          <path d="M16 20l4 0l0 -4"></path>
+          <path d="M14 14l6 6"></path>
+          <path d="M8 4l-4 0l0 4"></path>
+          <path d="M4 4l6 6"></path>
+        </symbol>
+        <symbol id="fingerprint" viewBox="0 0 24 24">
+          <path d="M18.9 7a8 8 0 0 1 1.1 5v1a6 6 0 0 0 .8 3"></path>
+          <path d="M8 11a4 4 0 0 1 8 0v1a10 10 0 0 0 2 6"></path>
+          <path d="M12 11v2a14 14 0 0 0 2.5 8"></path>
+          <path d="M8 15a18 18 0 0 0 1.8 6"></path>
+          <path d="M4.9 19a22 22 0 0 1 -.9 -7v-1a8 8 0 0 1 12 -6.95"></path>
+        </symbol>
+        <symbol id="eye" viewBox="0 0 24 24">
+          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+          <path
+            d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"
+          ></path>
+        </symbol>
+      </defs>
+      <symbol id="send" viewBox="0 0 24 24">
+        <path
+          d="M10 14 21 3M21 3l-7 18-4-7-7-4 18-7Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </symbol>
+    </svg>
+    <script id="portfolio-photos" type="application/json">
+      {}
+    </script>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <canvas id="contour-canvas" aria-hidden="true"></canvas>
+    <div id="iris" aria-hidden="true"></div>
+    <header class="site-header">
+      <button
+        class="theme-toggle icon-button"
+        id="theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+        title="Switch to light mode"
+      >
+        <svg class="icon sun" aria-hidden="true">
+          <use href="#sun"></use></svg
+        ><svg class="icon moon" aria-hidden="true">
+          <use href="#moon"></use>
+        </svg>
+      </button>
+    </header>
+    <nav class="rail" aria-label="Portfolio sections">
+      <svg
+        class="rail-route"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            id="rail-fade"
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="28"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="black"></stop>
+            <stop offset="1" stop-color="white"></stop>
+          </linearGradient>
+          <mask id="rail-mask" maskUnits="userSpaceOnUse">
+            <rect class="rail-mask-area" fill="url(#rail-fade)"></rect>
+            <g id="rail-holes"></g>
+            <circle class="plane-hole" r="4" fill="black"></circle>
+          </mask>
+          <mask id="nodes-mask" maskUnits="userSpaceOnUse">
+            <rect class="rail-mask-area" fill="white"></rect>
+            <circle class="plane-hole" r="4" fill="black"></circle>
+          </mask>
+        </defs>
+        <g mask="url(#rail-mask)">
+          <path class="rail-base"></path>
+          <path id="rail-progress"></path>
+        </g>
+        <g id="rail-nodes" mask="url(#nodes-mask)"></g>
+      </svg>
+      <svg
+        id="rail-plane"
+        class="rail-plane"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M12 2 20.5 21 12 17.5 3.5 21z"></path>
+      </svg>
+      <a href="#about" data-scene="0" aria-current="page"
+        ><span class="rail-mark" aria-hidden="true"></span><span>About</span></a
+      >
+      <a href="#projects" data-scene="1"
+        ><span class="rail-mark" aria-hidden="true"></span
+        ><span>Projects</span></a
+      >
+      <a href="#photography" data-scene="2"
+        ><span class="rail-mark" aria-hidden="true"></span
+        ><span>Photos</span></a
+      >
+      <a href="#contact" data-scene="3"
+        ><span class="rail-mark" aria-hidden="true"></span
+        ><span>Contact</span></a
+      >
     </nav>
-
-    <!-- Contact -->
-    <div class="hero-links" id="hero-links">
-        <a href="https://github.com/Kn0tzer" target="_blank" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        </a>
-        <a href="https://discordapp.com/users/506628717125304334" target="_blank" aria-label="Discord">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg>
-        </a>
-        <a href="https://t.me/kn0tzer" target="_blank" aria-label="Telegram">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.29-.48.79-.74 3.08-1.34 5.15-2.23 6.19-2.66 2.95-1.23 3.56-1.44 3.97-1.45.09 0 .28.02.41.11.11.08.14.19.15.27-.02.04.01.12 0 .15z"/></svg>
-        </a>
-        <a href="javascript:void(0);" onclick="copyEmail()" aria-label="Copy email">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
-    </div>
-    <div id="toast" class="toast">kn3tzer@gmail.com copied to clipboard</div>
-
-    <div class="scroll-indicator">
-        <span class="scroll-text">Projects</span>
-        <div class="scroll-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    <div class="scroll-story">
+      <main id="main" class="stage" data-scene="about" tabindex="-1">
+        <div class="stage-heading">
+          <div class="hero-name">
+            <h1 id="hero-name" tabindex="-1" aria-label="Kn0tzer">
+              Kn<span class="hero-zero"
+                ><span class="zero-glyph">0</span
+                ><img
+                  class="zero-logo"
+                  src="assets/avatar.png"
+                  alt=""
+                  width="160"
+                  height="160" /></span
+              >tzer<span class="name-period">.</span>
+            </h1>
+            <canvas id="life-canvas" aria-hidden="true"></canvas>
+          </div>
         </div>
+        <div class="scene-panels">
+          <section
+            class="scene-panel is-active"
+            id="about"
+            aria-label="About Kn0tzer"
+          >
+            <div class="panel-copy">
+              <h2 class="panel-title">About</h2>
+              <p class="lead">
+                I make things.<br /><span id="break-line">I break things.</span
+                ><br /><span>I care how they feel.</span>
+              </p>
+              <p class="personal-info">
+                16 <span aria-hidden="true">/</span> High-school junior
+              </p>
+              <div class="interest-list">
+                <span>Design</span><span>Security research</span
+                ><span>Photography</span>
+              </div>
+
+              <div class="stats-widget" aria-label="Portfolio statistics">
+                <div class="stat">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#eye"></use></svg
+                  ><strong id="view-count">…</strong><span>Page views</span>
+                </div>
+                <div class="stat">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#code"></use></svg
+                  ><strong data-repos="">…</strong><span>Repos</span>
+                </div>
+                <div class="stat">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#star"></use></svg
+                  ><strong data-stars="">…</strong><span>Stars</span>
+                </div>
+              </div>
+            </div>
+            <div class="panel-visual hero-visual">
+              <article class="current-card tilt-card" id="current-card">
+                <a
+                  class="current-top"
+                  href="https://github.com/Kn0tzer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span class="current-label">Working on</span
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#arrow-up-right"></use></svg
+                ></a>
+                <a
+                  id="current-repo"
+                  href="https://github.com/Kn0tzer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Loading…</a
+                >
+                <span
+                  id="current-description"
+                  class="current-description"
+                ></span>
+                <span class="commit-row"
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#git-commit"></use></svg
+                  ><span id="current-commit">Loading latest commit…</span></span
+                >
+                <span class="current-bottom"
+                  ><span id="current-date"></span
+                  ><span id="github-state" class="live-state" hidden=""></span
+                ></span>
+              </article>
+            </div>
+          </section>
+          <section class="scene-panel" id="projects" aria-label="Projects">
+            <div class="panel-copy">
+              <h2 class="panel-title">Projects</h2>
+              <div class="project-list" aria-label="Select a project">
+                <button
+                  class="project-row is-selected"
+                  type="button"
+                  data-project="microapps"
+                  aria-pressed="true"
+                >
+                  <span class="project-symbol"
+                    ><svg class="icon" aria-hidden="true">
+                      <use href="#code"></use></svg></span
+                  ><strong>Microapps</strong
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#chevron-right"></use>
+                  </svg>
+                </button>
+                <button
+                  class="project-row"
+                  type="button"
+                  data-project="shortcuts"
+                  aria-pressed="false"
+                >
+                  <span class="project-symbol"
+                    ><svg class="icon" aria-hidden="true">
+                      <use href="#fingerprint"></use></svg></span
+                  ><strong>Shortcuts exploits</strong
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#chevron-right"></use>
+                  </svg>
+                </button>
+                <button
+                  class="project-row"
+                  type="button"
+                  data-project="server"
+                  aria-pressed="false"
+                >
+                  <span class="project-symbol"
+                    ><svg class="icon" aria-hidden="true">
+                      <use href="#server"></use></svg></span
+                  ><strong>Self hosting</strong
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#chevron-right"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="panel-visual projects-visual">
+              <article class="project-feature tilt-card">
+                <div
+                  class="project-art"
+                  id="project-art"
+                  data-project="microapps"
+                  aria-hidden="true"
+                >
+                  <div class="app-tile">
+                    <svg class="icon"><use href="#code"></use></svg>
+                  </div>
+                </div>
+                <div class="project-feature-copy">
+                  <h3 id="project-name">Microapps</h3>
+                  <p id="project-description">Small, handmade web apps.</p>
+                  <a
+                    class="text-link"
+                    id="project-link"
+                    href="https://github.com/Kn0tzer/microapps-monorepo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><span>View project</span
+                    ><svg class="icon" aria-hidden="true">
+                      <use href="#arrow-up-right"></use></svg
+                  ></a>
+                </div>
+              </article>
+            </div>
+          </section>
+          <section
+            class="scene-panel"
+            id="photography"
+            aria-label="Photography gallery"
+          >
+            <div class="panel-copy">
+              <h2 class="panel-title">Photos</h2>
+              <div
+                id="album-switcher"
+                class="album-switcher"
+                aria-label="Photo albums"
+              >
+                <button
+                  type="button"
+                  class="album is-active"
+                  data-album="sky"
+                  aria-pressed="true"
+                >
+                  <span class="album-stack" aria-hidden="true"
+                    ><span class="letter-paper"
+                      ><span class="album-cover"></span></span
+                    ><span class="letter-flap"></span
+                    ><span class="letter-front"></span></span
+                  ><span class="album-name"
+                    >Sky<span class="album-count" aria-label="19 photos"
+                      >19</span
+                    ></span
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="album"
+                  data-album="nature"
+                  aria-pressed="false"
+                >
+                  <span class="album-stack" aria-hidden="true"
+                    ><span class="letter-paper"
+                      ><span class="album-cover"></span></span
+                    ><span class="letter-flap"></span
+                    ><span class="letter-front"></span></span
+                  ><span class="album-name"
+                    >Nature<span class="album-count" aria-label="23 photos"
+                      >23</span
+                    ></span
+                  >
+                </button>
+                <button
+                  type="button"
+                  class="album"
+                  data-album="structures"
+                  aria-pressed="false"
+                >
+                  <span class="album-stack" aria-hidden="true"
+                    ><span class="letter-paper"
+                      ><span class="album-cover"></span></span
+                    ><span class="letter-flap"></span
+                    ><span class="letter-front"></span></span
+                  ><span class="album-name"
+                    >Structures<span class="album-count" aria-label="16 photos"
+                      >16</span
+                    ></span
+                  >
+                </button>
+              </div>
+            </div>
+            <div class="panel-visual gallery-visual">
+              <div class="gallery-viewport">
+                <div
+                  id="gallery-scroll"
+                  class="gallery-scroll"
+                  role="region"
+                  tabindex="0"
+                  aria-label="Photos in the selected album"
+                >
+                  <div id="gallery-grid" class="gallery-grid"></div>
+                  <span
+                    id="gallery-status"
+                    class="visually-hidden"
+                    role="status"
+                    aria-live="polite"
+                  ></span>
+                  <noscript
+                    >&lt;p class="noscript-note"&gt;Enable JavaScript to use the
+                    gallery and live widgets.&lt;/p&gt;</noscript
+                  >
+                </div>
+                <div
+                  class="gallery-scroll-track"
+                  role="scrollbar"
+                  tabindex="0"
+                  aria-controls="gallery-scroll"
+                  aria-orientation="vertical"
+                  aria-valuemin="0"
+                  aria-label="Scroll photos"
+                >
+                  <span class="gallery-scroll-thumb" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section
+            class="scene-panel"
+            id="contact"
+            aria-label="Contact Kn0tzer"
+          >
+            <div class="panel-copy">
+              <h2 class="panel-title">Contact</h2>
+              <section class="server-widget" aria-label="Live server status">
+                <div class="server-widget-top">
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#server"></use></svg
+                  ><span id="server-title">Self hosted</span
+                  ><button
+                    class="server-refresh"
+                    type="button"
+                    aria-label="Check server status"
+                    title="Check server status"
+                  >
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#refresh"></use>
+                    </svg>
+                  </button>
+                </div>
+                <span id="server-uptime" class="server-uptime"
+                  >Connecting…</span
+                >
+                <div class="server-status" aria-live="polite">
+                  <span class="status-led" aria-hidden="true"></span
+                  ><strong id="server-status">Checking…</strong>
+                  <span id="server-count" class="server-count"></span>
+                </div>
+                <ul
+                  class="server-services"
+                  id="server-services"
+                  aria-label="Hosted service uptime"
+                ></ul>
+                <p id="server-history-caption" class="server-history-caption">
+                  Recent service checks
+                </p>
+                <dl class="server-meters">
+                  <div class="meter" data-meter="load">
+                    <dt>CPU</dt>
+                    <dd>
+                      <span class="meter-value">—</span
+                      ><span class="meter-bar"><span></span></span>
+                    </dd>
+                  </div>
+                  <div class="meter" data-meter="memory">
+                    <dt>Memory</dt>
+                    <dd>
+                      <span class="meter-value">—</span
+                      ><span class="meter-bar"><span></span></span>
+                    </dd>
+                  </div>
+                  <div class="meter" data-meter="ping">
+                    <dt>Ping</dt>
+                    <dd>
+                      <span class="meter-value">—</span
+                      ><span class="meter-bar"><span></span></span>
+                    </dd>
+                  </div>
+                </dl>
+              </section>
+            </div>
+            <div class="panel-visual contact-visual">
+              <div class="contact-stack">
+                <div class="github-contact-wrap">
+                  <a
+                    class="social-link github-trigger"
+                    href="https://github.com/Kn0tzer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    ><svg class="icon" aria-hidden="true">
+                      <use href="#brand-github"></use></svg
+                    ><span>GitHub</span
+                    ><svg class="icon" aria-hidden="true">
+                      <use href="#arrow-up-right"></use></svg
+                  ></a>
+                  <div class="github-popover">
+                    <div class="github-person">
+                      <img
+                        src="assets/avatar.png"
+                        alt=""
+                        width="48"
+                        height="48"
+                      /><strong>Kn0tzer</strong
+                      ><span id="contribution-year"></span>
+                    </div>
+                    <div
+                      id="contribution-grid"
+                      class="contribution-grid"
+                      tabindex="0"
+                      aria-label="GitHub contributions"
+                      role="group"
+                    ></div>
+                    <div class="contribution-caption">
+                      <span id="contribution-total">Loading contributions…</span
+                      ><span
+                        id="contribution-tooltip"
+                        role="status"
+                        aria-live="polite"
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="email-action">
+                  <a class="email-link" href="mailto:kn3tzer@gmail.com"
+                    ><svg class="icon email-icon" aria-hidden="true">
+                      <use href="#mail"></use></svg
+                    ><span>kn3tzer@gmail.com</span
+                    ><svg class="icon" aria-hidden="true">
+                      <use href="#arrow-up-right"></use></svg></a
+                  ><button
+                    type="button"
+                    class="icon-button"
+                    id="copy-email"
+                    aria-label="Copy email address"
+                    title="Copy email address"
+                  >
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#copy"></use>
+                    </svg>
+                  </button>
+                </div>
+                <a
+                  class="social-link discord-contact"
+                  href="https://discordapp.com/users/506628717125304334"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#brand-discord"></use></svg
+                  ><span>Discord</span
+                  ><svg class="icon" aria-hidden="true">
+                    <use href="#arrow-up-right"></use></svg
+                ></a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
     </div>
 
-    <main id="scroll-container">
-        <div id="scroll-inner">
-
-        <!-- Top -->
-        <section id="section-hero" class="snap-section">
-            <div class="hero-content">
-                <h1 class="hero-name">KnOtzer</h1>
-                <p class="hero-description">16 year old self-motivated programmer</p>
-                <ul class="hero-bullets">
-                    <li>
-                        <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22C12 22 12 12 22 12C12 12 12 2 12 2C12 2 12 12 2 12C12 12 12 22 12 22Z"/></svg>
-                        Frontend Design
-                    </li>
-                    <li>
-                        <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22C12 22 12 12 22 12C12 12 12 2 12 2C12 2 12 12 2 12C12 12 12 22 12 22Z"/></svg>
-                        Security Research
-                    </li>
-                    <li>
-                        <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22C12 22 12 12 22 12C12 12 12 2 12 2C12 2 12 12 2 12C12 12 12 22 12 22Z"/></svg>
-                        Game Design
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Middle -->
-        <section id="section-projects" class="snap-section">
-            <div class="projects-grid">
-                <div class="project-card glass-card">
-                    <h3>Microapps</h3>
-                    <p>A group of small apps designed to have a good UI while being as simple as possible, even if that means compromising on features. Very early alpha.</p>
-                    <div class="card-links">
-                        <a href="https://github.com/Kn0tzer/microapps" target="_blank">GitHub</a>
-                        <a href="https://microapps-dj.vercel.app/microtask" target="_blank">Microtask</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <h3>Shortcuts Exploits and Bugs</h3>
-                    <p>A lengthy list of exploits, bugs, oversights, and more I've found in my time creating iOS Shortcuts. (Nearly 100 stars on GitHub!)</p>
-                    <div class="card-links">
-                        <a href="https://github.com/Kn0tzer/iOS-Shortcuts-Exploits" target="_blank">Link</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <h3>BlipBox</h3>
-                    <p>A peer to peer file transfer app with infinite file size limits, file history, and cloud backup support. Unreleased since I would need to rewrite the entire backend. I recommend you use Keet since it has similar features.</p>
-                    <div class="card-links">
-                        <a href="https://keet.io/" target="_blank">Keet</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <h3>HBoard</h3>
-                    <p>A web based jailbreak alternative providing tweak injection to a pixel perfect recreation of the iOS homescreen. This project has never been finished, see Prism for something similar (also unfinished).</p>
-                    <div class="card-links">
-                        <a href="https://x.com/prismios" target="_blank">Prism</a>
-                        <a href="https://hboard.netlify.app" target="_blank">Outdated archive</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <h3>iMessage</h3>
-                    <p>A janky but still working method to access iMessage from any device with a web browser. Never being released.</p>
-                    <div class="card-links">
-                        <a href="https://github.com/notAperson535/OneClick-macOS-Simple-KVM" target="_blank">Somewhat but not really based on this script</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <h3>Remote Control iPhone</h3>
-                    <p>A method to remotely control any iPhone from any device with a web browser</p>
-                    <div class="card-links">
-                        <a href="https://github.com/Kn0tzer/Remote-Control-iPhone" target="_blank">No Jailbreak Guide</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <h3>Web Proxy/Unblocker</h3>
-                    <p>An Ultraviolet based web proxy designed to cleanly unblock websites on school distributed devices. Used in part for the Moonlight Proxy</p>
-                    <div class="card-links">
-                        <a href="https://github.com/Kn0tzer/Unblocker" target="_blank">GitHub</a>
-                        <a href="https://titaniumnetwork.org" target="_blank">Titanium Network</a>
-                    </div>
-                </div>
-
-                <div class="project-card glass-card">
-                    <h3>Kn0tzer.github.io</h3>
-                    <p>See the GitHub for subdirectories of this website</p>
-                    <div class="card-links">
-                        <a href="https://github.com/Kn0tzer/kn0tzer.github.io" target="_blank">GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Bottom -->
-        <section id="section-experience" class="snap-section">
-            <div class="experience-panels">
-                <div class="experience-panel glass-panel">
-                    <h3>Oracle Cloud Infrastructure</h3>
-                    <p>I host a bunch of tools on Oracle Cloud Infrastructure. This gives me experience with many things, such as docker, server security, caddy, and more. I also host a private <a href="https://matrix.org/" target="_blank">Matrix</a> server, and Minecraft server.</p>
-                </div>
-
-                <div class="experience-panel glass-panel">
-                    <h3>Backend Networking</h3>
-                    <p>I have experience in networking and server side development through the iMessage project, and <a href="https://matrix.org/" target="_blank">Matrix</a> server listed above. Neither of these are open to the public for a variety of reasons.</p>
-                    <p>Something that did get released, however, is the Web Proxy/Unblocker listed above which involved full stack development, web proxies, working with a team, Google Chrome and Cisco Umbrella exploits, and much more.</p>
-                </div>
-                
-                <div class="experience-panel glass-panel">
-                    <h3>Web Development and Design</h3>
-                    <p>If this website isn't enough (fair), then check out my app called <a href="https://microapps-dj.vercel.app/microtask" target="_blank">Microtask</a>. This is currently in it's early alpha stages, but I do have <a href="https://github.com/Kn0tzer/microapps" target="_blank">big plans for this suite of apps</a>.</p>
-                </div>
-            </div>
-        </section>
-        </div>
-    </main>
-</body>
+    <dialog id="photo-dialog" aria-label="Expanded photograph">
+      <button class="photo-close" type="button" aria-label="Close photograph">
+        ×
+      </button>
+      <img id="lightbox-image" alt="" />
+    </dialog>
+    <noscript
+      ><style>
+        .scroll-story {
+          height: auto;
+        }
+        .stage {
+          position: relative;
+          inset: auto;
+        }
+        .scene-panel {
+          position: relative;
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          margin-bottom: 5rem;
+        }
+        .stage-heading {
+          position: relative;
+        }
+        .panel-copy {
+          padding-top: 0;
+        }
+        .panel-title {
+          position: static;
+          width: auto;
+          height: auto;
+          clip-path: none;
+        }
+        .rail {
+          position: relative;
+        }
+        #iris {
+          display: none;
+        }
+      </style></noscript
+    >
+  </body>
 </html>

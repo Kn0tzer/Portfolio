@@ -1,7 +1,9 @@
-### https://kn0tzer.github.io
-Alternate hosting at kn0tzer.z.org
-<p><a href="https://kn0tzer.github.io">/</a> - My home page</p><br><br>
+# https://kn0tzer.work.gd
 
-<a href="https://kn0tzer.github.io/math/host">/math/host</a> - <a href="https://github.com/gn-math">GN-Math</a> Hosting<br><br>
+![Portfolio screenshot](assets/screenshot.png)
 
-<p><a href="https://kn0tzer.github.io/test">/test</a> - Choose from a dropdown and press escape to load a web proxy/unblocker</p>
+## Credits
+
+- [RailTOC](https://rareui.com/components/railtoc) by Swami Malode
+- [Geist](https://vercel.com/font) by Vercel and basement.studio
+- [Tabler Icons](https://tabler.io/icons) by Paweł Kuna. [Licenses](assets/LICENSES.txt).
