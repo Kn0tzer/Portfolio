@@ -1,4 +1,4 @@
-# Portfolio | [kn0tzer.work.gd](https://kn0tzer.work.gd) | [kn0tzer.github.io](https://kn0tzer.github.io)
+# Portfolio | [kn0tzer.work.gd](https://kn0tzer.work.gd)
 
 ![Portfolio screenshot](assets/screenshot.png)
 
